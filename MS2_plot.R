@@ -1,9 +1,9 @@
 library(readxl)
 library(tidyverse)
 # use the file name of experimental data
-exp_he <- read_excel("//gsn.stjude.org/researchhomedirs/penggrp/xhan/R/Tom copy/MS2_plot/MAOA_experimental.xlsx", sheet = 1) %>% mutate(mass=round(mass, 6))
+exp_he <- read_excel("MAOA_experimental.xlsx", sheet = 1) %>% mutate(mass=round(mass, 6))
 # use the file name of theoretical data
-the_he <- read_excel("//gsn.stjude.org/researchhomedirs/penggrp/xhan/R/Tom copy/MS2_plot/MAOA_theoretical.xlsx", sheet = 1) %>% mutate(mass=round(mass, 4))
+the_he <- read_excel("MAOA_theoretical.xlsx", sheet = 1) %>% mutate(mass=round(mass, 4))
 # intensity max
 max_he <- max(exp_he$Intensity)
 # convert intensity to percentage
@@ -31,9 +31,9 @@ he_match_export <- left_join(the_he, he_dif_fi1, by=c("mass"))
 #write.csv(he_match_export, "heavy_match.csv", row.names = F)
 
 # read experimental light data
-exp_li <- read_excel("//gsn.stjude.org/researchhomedirs/penggrp/xhan/R/Tom copy/MS2_plot/MAOA_experimental.xlsx", sheet = 2) %>% mutate(mass=round(mass, 6))
+exp_li <- read_excel("MAOA_experimental.xlsx", sheet = 2) %>% mutate(mass=round(mass, 6))
 # read theoretical light data
-the_li <- read_excel("//gsn.stjude.org/researchhomedirs/penggrp/xhan/R/Tom copy/MS2_plot/MAOA_theoretical.xlsx", sheet = 2) %>% mutate(mass=round(mass, 4))
+the_li <- read_excel("MAOA_theoretical.xlsx", sheet = 2) %>% mutate(mass=round(mass, 4))
 max_li <- max(exp_li$Intensity)
 
 # did the same thing for light experiments
